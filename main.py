@@ -21,6 +21,10 @@ def train_model():
     potassium = float(data['potassium'])
     pH = float(data['pH'])
 
+    
+
+        
+
     input_data = pd.DataFrame(
         [[nitrogen, phosphorus, potassium, pH, soil_color]],
         columns=['Nitrogen', 'Phosphorus', 'Potassium', 'pH', 'Soil_color']
@@ -46,10 +50,12 @@ def train_model():
 
     response = {
         'recommended_crop': predicted_crop[0],
-        'recommended_fertilizer': recommended_fertilizer
+        'recommended_fertilizer': recommended_fertilizer,
+        'nitrogen':nitrogen,
+        'phosphorus':phosphorus ,
+        'potassium':potassium  ,
+        "ph":pH 
     }
 
     return jsonify(response)
 
-if __name__ == '__main__':
-    app.run()
